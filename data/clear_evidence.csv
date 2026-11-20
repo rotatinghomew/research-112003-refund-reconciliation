@@ -1,0 +1,6 @@
+batch,candidates,known,classification
+cl1,f5|f6,17,possible
+cl2,f2,23,bank_confirmed
+cl3,f3|f4|f7,24,possible
+cl3,f3,28,bank_confirmed
+cl4,f5|f6,27,possible

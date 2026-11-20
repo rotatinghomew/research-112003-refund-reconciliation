@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 
 DATA = Path(__file__).resolve().parents[1] / 'data'
-TABLES = {'quotes': ('line', 'order', 'category', 'merchant', 'gross', 'paid_weight'), 'payments': ('pay', 'order', 'leg', 'channel', 'received', 'amount'), 'awards': ('case', 'revision', 'line', 'pay', 'payer', 'amount', 'status', 'known', 'period'), 'movements': ('id', 'pay', 'payer', 'chan_ref', 'case_hint', 'state', 'amount', 'known', 'prior'), 'confirmations': ('id', 'observed', 'canonical', 'case', 'known', 'state'), 'signed_lines': ('report', 'line', 'case', 'party', 'period', 'payable', 'issued', 'signed'), 'cycles': ('period', 'effective', 'asof', 'state')}
+TABLES = {'quotes': ('line', 'order', 'category', 'merchant', 'gross', 'paid_weight'), 'payments': ('pay', 'order', 'leg', 'channel', 'received', 'amount'), 'awards': ('case', 'revision', 'line', 'pay', 'payer', 'amount', 'status', 'known', 'period'), 'movements': ('id', 'pay', 'payer', 'chan_ref', 'case_hint', 'state', 'amount', 'known', 'prior'), 'confirmations': ('id', 'observed', 'canonical', 'case', 'known', 'state'), 'signed_lines': ('report', 'line', 'case', 'party', 'period', 'payable', 'issued', 'signed'), 'cycles': ('period', 'effective', 'asof', 'state'), 'clearing': ('batch', 'channel', 'date', 'net_cents', 'declared_fee', 'fee_party', 'known'), 'clear_evidence': ('batch', 'candidates', 'known', 'classification'), 'dispatch': ('dispatch', 'adjustment', 'batch', 'case', 'payer', 'amount', 'known', 'state')}
 RELATION = ('awards', 'pay', 'payments', 'pay')
 
 
@@ -30,3 +30,5 @@ class SourceContract(unittest.TestCase):
         flows = {row['id']: row for row in self.read('movements')}
         self.assertEqual(flows[flows['f2']['prior']]['amount'], flows['f2']['amount'])
         self.assertTrue(any(row['observed'] != row['canonical'] and int(row['known']) > 18 for row in self.read('confirmations')))
+        self.assertEqual({row['state'] for row in self.read('dispatch')}, {'sent', 'batch_received', 'line_received', 'line_rejected'})
+        self.assertTrue(any(row['classification'] == 'bank_confirmed' and row['batch'] == 'cl3' for row in self.read('clear_evidence')))

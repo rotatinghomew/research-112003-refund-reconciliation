@@ -1,0 +1,6 @@
+dispatch,adjustment,batch,case,payer,amount,known,state
+d1,j1,feb,a1,m1,4301,24,sent
+d1,j2,feb,a1,platform,10000,24,sent
+d1,,feb,,,,25,batch_received
+d1,j1,feb,a1,m1,4301,27,line_rejected
+d1,j2,feb,a1,platform,10000,28,line_received

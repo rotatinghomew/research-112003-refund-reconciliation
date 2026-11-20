@@ -1,0 +1,5 @@
+batch,channel,date,net_cents,declared_fee,fee_party,known
+cl1,card,16,3500,100,m2,17
+cl2,wallet,22,-9920,80,platform,23
+cl3,wallet,25,4411,110,m1,26
+cl4,wallet,26,1500,20,m2,27
