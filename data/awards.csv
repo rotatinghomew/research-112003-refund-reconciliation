@@ -1,0 +1,7 @@
+case,revision,line,pay,payer,amount,status,known,period
+a1,1,l1,p1,platform,10000,awarded,10,jan
+a1,1,l1,p1,m1,4301,awarded,10,jan
+a2,1,l2,p2,m2,3000,appeal,11,jan
+a2,2,l2,p2,m2,2200,awarded,24,feb
+a3,1,l4,p3,m1,1100,awarded,13,jan
+a4,1,l5,p4,m2,1800,awarded,24,feb

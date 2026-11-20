@@ -1,0 +1,6 @@
+line,order,category,merchant,gross,paid_weight
+l1,o1,lecture,m1,42001,3
+l2,o1,workshop,m2,28000,2
+l3,o1,gift,m2,0,0
+l4,o2,lecture,m1,21997,1
+l5,o3,workshop,m2,10601,1

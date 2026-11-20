@@ -1,0 +1,5 @@
+pay,order,leg,channel,received,amount
+p1,o1,1,wallet,3,35001
+p2,o1,2,card,8,24000
+p3,o2,1,card,5,21997
+p4,o3,1,wallet,18,10601

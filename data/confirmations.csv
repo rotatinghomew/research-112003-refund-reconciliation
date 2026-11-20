@@ -1,0 +1,6 @@
+id,observed,canonical,case,known,state
+b1,f4,f3,a1,25,same
+b2,f5,f5,a2,25,linked
+b3,f6,f6,a3,15,linked
+b4,f1,f1,a1,12,linked
+b5,f3,f3,a1,25,linked
